@@ -1,0 +1,12 @@
+version: "3"
+services:
+  mysql: 
+    build: .
+    network_mode: "host"
+    restart: always
+    container_name: mysql
+    environment:
+      - RCLONE_BACKUP_PATH=s3:/backup
+    volumes:
+      - ./rclone.conf:/root/.config/rclone/rclone.conf
+
